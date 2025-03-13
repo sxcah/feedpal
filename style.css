@@ -1,3 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.wrapper {
+    width: 100%;
+
+    min-height: 100vh;
+    background-color: #121212;
+}
+
+nav {
+    background-color: red;
+}
+
 .input-group {
     display: flex;
     flex-direction: column;

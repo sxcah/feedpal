@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($username) || empty($password)) {
         echo "Missing Fields.";
     } else {
-        $stmt = $conn->prepare("SELECT user_account.user_id, user_account.password, user_information.first_name, user_information.last_name, user_information.email FROM user_account JOIN user_information ON user_account.user_id = user_information.user_id WHERE user_account.username = ?");
+        $stmt = $conn->prepare("SELECT user_id, password FROM user_account WHERE username = ?");
 
         if ($stmt){
             $stmt->bind_param('s', $username);
@@ -18,15 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->store_result();
 
             if ($stmt->num_rows > 0){
-                $stmt->bind_result($user_id, $hashed_password, $fname, $lname, $email);
+                $stmt->bind_result($user_id, $hashed_password);
                 $stmt->fetch();
 
                 if (password_verify($password, $hashed_password)) {
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['username'] = $username;
-                    $_SESSION['first_name'] = $fname;
-                    $_SESSION['last_name'] = $lname;
-                    $_SESSION['email'] = $email;
                     header("Location: home.php");
                     exit();
                 } else {
