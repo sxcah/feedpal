@@ -14,6 +14,7 @@
                 <div class="container">
                     
                     <form action="user_verification.php" method="POST">
+                        <p>LOGIN</p>
 
                         <div class="input-group">
                             <label>Username</label>
@@ -25,12 +26,22 @@
                             <input type="password" class="text-field" name="password" placeholder="password">
                         </div>
 
+                        <div class="error">
+                            <?php
+                            session_start();
+                            if (isset($_SESSION['error_message'])) {
+                                echo htmlspecialchars($_SESSION['error_message']); 
+                                unset($_SESSION['error_message']); 
+                            }
+                            ?>
+                        </div>
+
                         <div class="links">
                             <p><a href="recover-account.html">FORGOT PASSWORD?</a></p>
                             <p>Don't have an account? <a href="register.html">REGISTER</a></p>
                         </div>
 
-                        <input type="submit" value="LOGIN">
+                        <input type="submit" class="btn" value="LOGIN">
                     </form>
 
                 </div>

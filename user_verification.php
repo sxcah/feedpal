@@ -7,8 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if (empty($username) || empty($password)) {
-        echo "Missing Fields.";
+    if (empty($username)){
+        $error_message = "Enter USERNAME!";
+    } elseif (empty($password)){
+        $error_message = "Enter PASSWORD!";
     } else {
         $stmt = $conn->prepare("SELECT user_account.user_id, user_account.password, user_information.first_name, user_information.last_name, user_information.email FROM user_account JOIN user_information ON user_account.user_id = user_information.user_id WHERE user_account.username = ?");
 
@@ -30,10 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header("Location: home.php");
                     exit();
                 } else {
-                    echo "WRONG PASSWORD.";
+                    $error_message = "WRONG PASSWORD.";
                 }
             } else {
-                echo "USER NOT FOUND.";
+                $error_message = "USER NOT FOUND.";
             }
 
             $stmt->close();
@@ -42,5 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     $conn->close();
+
+    $_SESSION['error_message'] = $error_message;
+    header('Location: login.php');
+    exit();
 }
 ?>

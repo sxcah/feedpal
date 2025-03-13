@@ -46,7 +46,7 @@ if (isset($_SESSION['username'])) {
                         <?php if (isset($_SESSION['username'])): ?>
                             <p><a href="logout.php">LOGOUT</a></p>
                         <?php else: ?>
-                            <a href="login.html">LOGIN</a>
+                            <a href="login.php">LOGIN</a>
                             <a href="register.html">REGISTER</a>
                         <?php endif; ?>
                     </div>

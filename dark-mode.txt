@@ -1,0 +1,40 @@
+Core Palette:
+
+Background:
+#121212 (Near-black, provides good contrast without being too harsh)
+#181818 (Slightly lighter alternative)
+Surface/Card Backgrounds:
+#242424 (Slightly lighter than the background, creates depth)
+#282828
+Text (Primary):
+#E0E0E0 (Light gray, readable against dark backgrounds)
+#FFFFFF (White, for high emphasis)
+Text (Secondary/Disabled):
+#9E9E9E (Medium gray, for less important text)
+Accent (Primary/Interactive):
+#BB86FC (A vibrant purple, provides good contrast)
+#64B5F6 (A bright blue, an alternative accent)
+Accent (Secondary/Hover):
+#D0A8FF (Lighter shade of the primary accent)
+#90CAF9 (Lighter version of the blue accent)
+Divider/Border:
+#373737 (Subtle divider color)
+Error/Danger:
+#CF6679 (A muted red, for errors and warnings)
+Success:
+#A5D6A7 (A soft green, for positive feedback)
+Warning:
+#FFD54F (A muted yellow, for warnings)
+Variations and Considerations:
+
+Contrast: Ensure sufficient contrast between text and background colors for readability. Use tools like a contrast checker to verify WCAG compliance.
+Subtle Gradients: For card backgrounds or containers, consider very subtle linear gradients to add depth and visual interest without being distracting.
+Saturation: Keep the saturation of accent colors relatively low to avoid eye strain in a dark environment.
+User Preferences: If possible, allow users to customize the color palette to their liking.
+How to use it:
+
+Background: Use #121212 or #181818 for the main body of your website.
+Cards/Containers: Use #242424 or #282828 for elements that need to stand out slightly.
+Primary Text: Use #E0E0E0 for most of your text content. Use #FFFFFF for titles or important headings.
+Interactive Elements: Use #BB86FC or #64B5F6 for buttons, links, and other interactive elements.
+Secondary Text: Use #9E9E9E for less important information, such as timestamps or descriptions.
