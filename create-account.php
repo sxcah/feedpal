@@ -11,9 +11,10 @@
         <nav><a href="index.html">FEEDPAL</a></nav>
         <div class="main-wrapper">
             <div class="main-content">
-                <div class="container">
+                <div class="form-container">
                     
                     <form action="user_account.php" method="POST">
+                        <p>CREATE-ACCOUNT</p>
 
                         <div class="input-group">
                             <label>Username</label>
@@ -29,6 +30,19 @@
                             <label>Confirm-password</label>
                             <input type="password" class="text-field" name="confirm_password" placeholder="confirm-password">
                         </div>
+
+                        <?php 
+                        session_start();
+                        if (isset($_SESSION['error_message'])): ?>
+                            <div class="error">
+                                <?php
+                                if (isset($_SESSION['error_message'])) {
+                                    echo htmlspecialchars($_SESSION['error_message']); 
+                                    unset($_SESSION['error_message']); 
+                                }
+                                ?>
+                            </div>
+                        <?php endif; ?>
 
                         <div class="links">
                             <p>Already have an account? <a href="login.php">LOGIN</a></p>

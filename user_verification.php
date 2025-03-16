@@ -29,15 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['first_name'] = $fname;
                     $_SESSION['last_name'] = $lname;
                     $_SESSION['email'] = $email;
-                    header("Location: home.php");
+                    header("Location: dashboard.php");
                     exit();
                 } else {
-                    $error_message = "WRONG PASSWORD.";
+                    $error_message = "Wrong username or password.";
                 }
             } else {
-                $error_message = "USER NOT FOUND.";
+                $error_message = "Wrong username or password.";
             }
-
             $stmt->close();
         } else {
             echo "STATEMENT ERROR: ". $stmt->error;

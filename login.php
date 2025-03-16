@@ -11,7 +11,7 @@
         <nav><a href="index.html">FEEDPAL</a></nav>
         <div class="main-wrapper">
             <div class="main-content">
-                <div class="container">
+                <div class="form-container">
                     
                     <form action="user_verification.php" method="POST">
                         <p>LOGIN</p>
@@ -25,20 +25,21 @@
                             <label>Password</label>
                             <input type="password" class="text-field" name="password" placeholder="password">
                         </div>
-
-                        <div class="error">
-                            <?php
-                            session_start();
-                            if (isset($_SESSION['error_message'])) {
-                                echo htmlspecialchars($_SESSION['error_message']); 
-                                unset($_SESSION['error_message']); 
-                            }
-                            ?>
-                        </div>
-
+                        <?php 
+                        session_start();
+                        if (isset($_SESSION['error_message'])): ?>
+                            <div class="error">
+                                <?php
+                                if (isset($_SESSION['error_message'])) {
+                                    echo htmlspecialchars($_SESSION['error_message']); 
+                                    unset($_SESSION['error_message']); 
+                                }
+                                ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="links">
                             <p><a href="recover-account.html">FORGOT PASSWORD?</a></p>
-                            <p>Don't have an account? <a href="register.html">REGISTER</a></p>
+                            <p>Don't have an account? <a href="register.php">REGISTER</a></p>
                         </div>
 
                         <input type="submit" class="btn" value="LOGIN">

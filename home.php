@@ -41,13 +41,19 @@ if (isset($_SESSION['username'])) {
             <div class="main-content">
                 <div class="container">
                     <div class="header">Welcome to FeedPal, <?php echo htmlspecialchars($username); ?></div>
-                    <div class="user-info"><?php if (isset($email) && $email != '') { echo htmlspecialchars($email); } ?></div>
+                    <div class="user-info">
+                        <?php 
+                            if (isset($email) && $email != '') { 
+                                echo htmlspecialchars($email);
+                            } 
+                        ?>
+                    </div>
                     <div class="links">
                         <?php if (isset($_SESSION['username'])): ?>
                             <p><a href="logout.php">LOGOUT</a></p>
                         <?php else: ?>
                             <a href="login.php">LOGIN</a>
-                            <a href="register.html">REGISTER</a>
+                            <a href="register.php">REGISTER</a>
                         <?php endif; ?>
                     </div>
                 </div>
